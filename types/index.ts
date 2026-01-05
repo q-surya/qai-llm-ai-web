@@ -6,7 +6,7 @@ export interface WorkflowToken {
 
 export interface NodeTiming {
     name: string;
-    time_ms: number;
+    time_sec: number;
     success: boolean;
 }
 

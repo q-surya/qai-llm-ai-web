@@ -157,11 +157,11 @@ export default function ResponseDetails() {
                                             <Typography variant="body2">{node.name}</Typography>
                                             <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
                                                 <Typography variant="body2" fontWeight="bold" color="primary">
-                                                    {(node.time_ms / 1000).toFixed(2)}s
+                                                    {node.time_sec !== undefined ? `${node.time_sec.toFixed(2)}s` : 'N/A'}
                                                 </Typography>
-                                                {apiResponse.total_time_in_sec && (
+                                                {apiResponse.total_time_in_sec && node.time_sec !== undefined && (
                                                     <Typography variant="caption" color="text.secondary">
-                                                        ({((node.time_ms / 1000 / apiResponse.total_time_in_sec) * 100).toFixed(1)}%)
+                                                        ({((node.time_sec / apiResponse.total_time_in_sec) * 100).toFixed(1)}%)
                                                     </Typography>
                                                 )}
                                             </Box>
@@ -317,7 +317,9 @@ export default function ResponseDetails() {
                                     />
                                 </Box>
                                 <Typography variant="body2" color="text.secondary">
-                                    Time: {(node.time_ms / 1000).toFixed(2)}s ({node.time_ms.toFixed(2)}ms)
+                                    Time: {node.time_sec !== undefined 
+                                        ? `${node.time_sec.toFixed(2)}s (${(node.time_sec * 1000).toFixed(2)}ms)`
+                                        : 'N/A'}
                                 </Typography>
                             </Box>
                         ))}
