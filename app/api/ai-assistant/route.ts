@@ -6,7 +6,7 @@ export async function POST(request: NextRequest) {
         const body = await request.json();
         const bodyString = JSON.stringify(body);
         
-        return new Promise((resolve) => {
+        return new Promise<NextResponse>((resolve) => {
             const options = {
                 hostname: '98.92.195.205',
                 port: 8000,
