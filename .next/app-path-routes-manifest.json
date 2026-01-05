@@ -1,0 +1,7 @@
+{
+  "/api/ai-assistant/route": "/api/ai-assistant",
+  "/_not-found/page": "/_not-found",
+  "/chat/page": "/chat",
+  "/page": "/",
+  "/details/[messageId]/page": "/details/[messageId]"
+}
