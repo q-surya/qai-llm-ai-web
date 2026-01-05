@@ -11,8 +11,8 @@ export default function RootLayout({
     children: React.ReactNode;
 }) {
     return (
-        <html lang="en">
-            <body>
+        <html lang="en" style={{ overflow: 'hidden', height: '100%' }}>
+            <body style={{ overflow: 'hidden', height: '100%', margin: 0 }}>
                 <ThemeProvider theme={chatGPTTheme}>
                     <CssBaseline />
                     <ChatProvider>{children}</ChatProvider>

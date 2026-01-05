@@ -16,19 +16,32 @@ const ChatContext = createContext<ChatContextType | undefined>(undefined);
 const STORAGE_KEY = 'quantara_chat_history';
 
 export const ChatProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-    const [messages, setMessages] = useState<Message[]>(() => {
-        if (typeof window === 'undefined') return [];
-        const saved = localStorage.getItem(STORAGE_KEY);
-        return saved ? JSON.parse(saved) : [];
-    });
+    const [messages, setMessages] = useState<Message[]>([]);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
+    const [isHydrated, setIsHydrated] = useState(false);
 
+    // Load from localStorage after hydration
     useEffect(() => {
         if (typeof window !== 'undefined') {
+            const saved = localStorage.getItem(STORAGE_KEY);
+            if (saved) {
+                try {
+                    setMessages(JSON.parse(saved));
+                } catch (e) {
+                    console.error('Failed to parse saved messages:', e);
+                }
+            }
+            setIsHydrated(true);
+        }
+    }, []);
+
+    // Save to localStorage after hydration
+    useEffect(() => {
+        if (isHydrated && typeof window !== 'undefined') {
             localStorage.setItem(STORAGE_KEY, JSON.stringify(messages));
         }
-    }, [messages]);
+    }, [messages, isHydrated]);
 
     const sendMessage = async (content: string) => {
         setIsLoading(true);
@@ -44,7 +57,10 @@ export const ChatProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
         setMessages((prev) => [...prev, userMessage]);
 
         try {
-            const response: AIResponse = await sendMessageToAI(content);
+            const response: AIResponse = await sendMessageToAI(
+                content,
+                false // Disable streaming
+            );
 
             console.log('API Response received:', response);
 
@@ -59,7 +75,6 @@ export const ChatProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
             setMessages((prev) => [...prev, aiMessage]);
         } catch (err) {
             setError(err instanceof Error ? err.message : 'An unknown error occurred');
-            // Optional: Add an error message to the chat
         } finally {
             setIsLoading(false);
         }

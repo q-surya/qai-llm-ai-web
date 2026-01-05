@@ -40,21 +40,12 @@ export const chatGPTTheme = createTheme({
                 body: {
                     backgroundColor: '#12081F',
                     color: '#F2ECF8',
-                    scrollbarWidth: 'thin',
-                    scrollbarColor: '#2B1348 #12081F',
-                    '&::-webkit-scrollbar': {
-                        width: '8px',
-                    },
-                    '&::-webkit-scrollbar-track': {
-                        backgroundColor: '#12081F',
-                    },
-                    '&::-webkit-scrollbar-thumb': {
-                        backgroundColor: '#2B1348',
-                        borderRadius: '4px',
-                        '&:hover': {
-                            backgroundColor: '#6D5CFF',
-                        },
-                    },
+                    overflow: 'hidden',
+                    height: '100%',
+                },
+                html: {
+                    overflow: 'hidden',
+                    height: '100%',
                 },
             },
         },
