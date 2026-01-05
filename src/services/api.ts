@@ -2,7 +2,7 @@ import type { AIResponse } from '../types';
 
 
 // Use proxy to avoid CORS issues in development
-const API_Base_URL = '/api';
+const API_Base_URL = ' ˀ/api';
 
 export const sendMessageToAI = async (query: string): Promise<AIResponse> => {
     try {
