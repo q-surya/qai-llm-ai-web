@@ -1,8 +1,8 @@
 import type { AIResponse } from '../types';
+import { API_BASE_URL } from '../constants/api';
 
 
-// Use proxy to avoid CORS issues in development
-const API_Base_URL = ' ˀ/api';
+// Use constant for API base URL
 
 export const sendMessageToAI = async (query: string): Promise<AIResponse> => {
     try {
@@ -13,9 +13,9 @@ export const sendMessageToAI = async (query: string): Promise<AIResponse> => {
 
         console.log('Payload object:', payload);
         console.log('Payload stringified:', payloadString);
-        console.log('Request URL:', `${API_Base_URL}/ai-assistant`);
+        console.log('Request URL:', `${API_BASE_URL}/ai-assistant`);
 
-        const response = await fetch(`${API_Base_URL}/ai-assistant`, {
+        const response = await fetch(`${API_BASE_URL}/ai-assistant`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
