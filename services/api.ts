@@ -121,10 +121,6 @@ export const sendMessageToAI = async (
                 }
                 // If it's not JSON, return a response with the text as answer
                 return {
-                    keywords: [],
-                    matched_tables: [],
-                    related_tables: [],
-                    matched_columns: {},
                     is_query_generated: false,
                     sql_query: '',
                     sql_prompt: '',
