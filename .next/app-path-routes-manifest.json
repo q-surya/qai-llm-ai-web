@@ -1,7 +1,0 @@
-{
-  "/_not-found/page": "/_not-found",
-  "/api/ai-assistant/route": "/api/ai-assistant",
-  "/details/[messageId]/page": "/details/[messageId]",
-  "/chat/page": "/chat",
-  "/page": "/"
-}

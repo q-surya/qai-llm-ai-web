@@ -11,10 +11,6 @@ export interface NodeTiming {
 }
 
 export interface AIResponse {
-    keywords: string[];
-    matched_tables: string[];
-    related_tables: string[];
-    matched_columns: Record<string, string[]>;
     is_query_generated: boolean;
     sql_query: string;
     sql_prompt: string;

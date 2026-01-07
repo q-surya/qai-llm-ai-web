@@ -98,39 +98,39 @@ export default function Chat() {
                         width: '100%',
                         px: { xs: 2, md: 0 },
                         py: { xs: 2, md: 4 },
-                    }}
-                >
-                    {messages.length === 0 ? (
-                        <Box sx={{ mt: { xs: 6, md: 10 }, textAlign: 'center', opacity: 0.7, px: 2 }}>
-                            <Typography variant="h4" fontWeight="bold" gutterBottom sx={{ fontSize: { xs: '1.5rem', md: '2rem' } }}>
-                                How can I help you today?
-                            </Typography>
-                            <Typography variant="body1" color="text.secondary" sx={{ mt: 2 }}>
-                                Ask me anything about your data
-                            </Typography>
-                        </Box>
-                    ) : (
-                        messages.map((msg) => <ChatBubble key={msg.id} message={msg} isLoading={isLoading && msg.id === messages[messages.length - 1]?.id} />)
-                    )}
-
-                    {isLoading && (
-                        <Box sx={{ display: 'flex', justifyContent: 'flex-start', mb: 2 }}>
-                            <Box
-                                sx={{
-                                    bgcolor: 'background.paper',
-                                    p: 2,
-                                    borderRadius: 2,
-                                    border: '1px solid',
-                                    borderColor: '#2B1348',
-                                }}
-                            >
-                                <CircularProgress size={20} sx={{ color: 'primary.main' }} />
+                        }}
+                    >
+                        {messages.length === 0 ? (
+                            <Box sx={{ mt: { xs: 6, md: 10 }, textAlign: 'center', opacity: 0.7, px: 2 }}>
+                                <Typography variant="h4" fontWeight="bold" gutterBottom sx={{ fontSize: { xs: '1.5rem', md: '2rem' } }}>
+                                    How can I help you today?
+                                </Typography>
+                                <Typography variant="body1" color="text.secondary" sx={{ mt: 2 }}>
+                                    Ask me anything about your data
+                                </Typography>
                             </Box>
-                        </Box>
-                    )}
+                        ) : (
+                        messages.map((msg) => <ChatBubble key={msg.id} message={msg} isLoading={isLoading && msg.id === messages[messages.length - 1]?.id} />)
+                        )}
+
+                        {isLoading && (
+                            <Box sx={{ display: 'flex', justifyContent: 'flex-start', mb: 2 }}>
+                                <Box
+                                    sx={{
+                                        bgcolor: 'background.paper',
+                                        p: 2,
+                                        borderRadius: 2,
+                                        border: '1px solid',
+                                        borderColor: '#2B1348',
+                                    }}
+                                >
+                                    <CircularProgress size={20} sx={{ color: 'primary.main' }} />
+                                </Box>
+                            </Box>
+                        )}
                     <div ref={bottomRef} style={{ height: '1px', flexShrink: 0 }} />
                 </Container>
-            </Box>
+                    </Box>
 
             {/* Input Component - Fixed at bottom */}
             <Box

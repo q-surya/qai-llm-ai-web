@@ -64,12 +64,12 @@ export default function ResponseDetails() {
                     },
                 }}
             >
-                <Container maxWidth="md" sx={{ mt: 4 }}>
-                    <Typography variant="h6">Response not found.</Typography>
-                    <Button startIcon={<ArrowBackIcon />} onClick={() => router.push('/chat')}>
-                        Back to Chat
-                    </Button>
-                </Container>
+            <Container maxWidth="md" sx={{ mt: 4 }}>
+                <Typography variant="h6">Response not found.</Typography>
+                <Button startIcon={<ArrowBackIcon />} onClick={() => router.push('/chat')}>
+                    Back to Chat
+                </Button>
+            </Container>
             </Box>
         );
     }
@@ -101,15 +101,15 @@ export default function ResponseDetails() {
                 },
             }}
         >
-            <Container maxWidth="md" sx={{ py: 4 }}>
-                <Box sx={{ mb: 4, display: 'flex', alignItems: 'center', gap: 2 }}>
-                    <Button startIcon={<ArrowBackIcon />} onClick={() => router.push('/chat')}>
-                        Back
-                    </Button>
-                    <Typography variant="h5" fontWeight="bold">
-                        Response Details
-                    </Typography>
-                </Box>
+        <Container maxWidth="md" sx={{ py: 4 }}>
+            <Box sx={{ mb: 4, display: 'flex', alignItems: 'center', gap: 2 }}>
+                <Button startIcon={<ArrowBackIcon />} onClick={() => router.push('/chat')}>
+                    Back
+                </Button>
+                <Typography variant="h5" fontWeight="bold">
+                    Response Details
+                </Typography>
+            </Box>
 
             {/* Timing Summary - Show at top if available */}
             {(apiResponse.total_time_in_sec !== undefined || (apiResponse.node_timings && apiResponse.node_timings.length > 0)) && (
@@ -173,33 +173,6 @@ export default function ResponseDetails() {
                     </Box>
                 </InfoCard>
             )}
-
-            <InfoCard title="Extracted Keywords">
-                <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
-                    {apiResponse.keywords.map((k, i) => (
-                        <Chip key={i} label={k} size="small" variant="outlined" />
-                    ))}
-                </Box>
-            </InfoCard>
-
-            <InfoCard title="Matched Tables">
-                <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
-                    {apiResponse.matched_tables.map((t, i) => (
-                        <Chip key={i} label={t} color="secondary" size="small" />
-                    ))}
-                </Box>
-            </InfoCard>
-
-            <InfoCard title="Matched Columns">
-                {Object.entries(apiResponse.matched_columns).map(([table, cols]) => (
-                    <Box key={table} sx={{ mb: 1 }}>
-                        <Typography variant="body2" fontWeight="bold" color="text.secondary">
-                            {table}:
-                        </Typography>
-                        <Typography variant="body2">{cols.join(', ')}</Typography>
-                    </Box>
-                ))}
-            </InfoCard>
 
             <InfoCard title="SQL Prompt">
                 <CodeBlock code={apiResponse.sql_prompt} />
@@ -406,7 +379,7 @@ export default function ResponseDetails() {
                 </InfoCard>
             )}
 
-            </Container>
+        </Container>
         </Box>
     );
 }

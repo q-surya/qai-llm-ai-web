@@ -42,7 +42,7 @@ export const chatGPTTheme = createTheme({
                     color: '#F2ECF8',
                     overflow: 'hidden',
                     height: '100%',
-                },
+                    },
                 html: {
                     overflow: 'hidden',
                     height: '100%',

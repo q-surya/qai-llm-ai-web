@@ -133,9 +133,9 @@ export const sendMessageToAI = async (
             }
         } else {
             // Non-streaming response
-            const data: AIResponse = await response.json();
-            console.log('API response data:', data);
-            return data;
+        const data: AIResponse = await response.json();
+        console.log('API response data:', data);
+        return data;
         }
     } catch (error) {
         console.error('Error sending message to AI:', error);

@@ -39,7 +39,7 @@ export const ChatProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     // Save to localStorage after hydration
     useEffect(() => {
         if (isHydrated && typeof window !== 'undefined') {
-            localStorage.setItem(STORAGE_KEY, JSON.stringify(messages));
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(messages));
         }
     }, [messages, isHydrated]);
 
@@ -83,7 +83,7 @@ export const ChatProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     const clearHistory = () => {
         setMessages([]);
         if (typeof window !== 'undefined') {
-            localStorage.removeItem(STORAGE_KEY);
+        localStorage.removeItem(STORAGE_KEY);
         }
     };
 

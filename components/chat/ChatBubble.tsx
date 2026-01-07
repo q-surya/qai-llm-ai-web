@@ -146,16 +146,16 @@ const ChatBubble: React.FC<ChatBubbleProps> = ({ message, isLoading = false }) =
                         </ReactMarkdown>
                     </Box>
                 ) : (
-                    <Typography
-                        variant="body1"
-                        sx={{
-                            whiteSpace: 'pre-wrap',
-                            wordBreak: 'break-word',
-                            color: '#F2ECF8'
-                        }}
-                    >
-                        {message.content}
-                    </Typography>
+                <Typography
+                    variant="body1"
+                    sx={{
+                        whiteSpace: 'pre-wrap',
+                        wordBreak: 'break-word',
+                        color: '#F2ECF8'
+                    }}
+                >
+                    {message.content}
+                </Typography>
                 )}
                 {isAI && !isLoading && message.apiResponse && (
                     <Typography
