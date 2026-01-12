@@ -15,8 +15,8 @@ export interface AIResponse {
     sql_query: string;
     sql_prompt: string;
     answer: string;
-    intent?: string;
-    intent_reasoning?: string;
+    summarized_intent?: string;
+    technical_intent?: string;
     workflow_tokens?: WorkflowToken[];
     total_input_tokens?: number;
     total_output_tokens?: number;

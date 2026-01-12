@@ -4,8 +4,10 @@ import https from 'https';
 export async function POST(request: NextRequest) {
     try {
         const body = await request.json();
-        const { query, streaming = false } = body;
-        const bodyString = JSON.stringify({ query, streaming });
+        const { query, streaming = false, device_id } = body;
+        // Map 'streaming' to 'stream' for backend API
+        const stream = streaming;
+        const bodyString = JSON.stringify({ query, stream, device_id });
         
         // If streaming is requested, create a ReadableStream
         if (streaming) {

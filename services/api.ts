@@ -1,5 +1,6 @@
 import type { AIResponse } from '../types';
 import { API_BASE_URL } from '../constants/api';
+import { getDeviceId } from '../utils/deviceId';
 
 export const sendMessageToAI = async (
     query: string,
@@ -7,9 +8,10 @@ export const sendMessageToAI = async (
     onStreamChunk?: (chunk: string) => void
 ): Promise<AIResponse> => {
     try {
-        console.log('Sending request to API:', { query, streaming });
+        const deviceId = getDeviceId();
+        console.log('Sending request to API:', { query, streaming, device_id: deviceId });
 
-        const payload = { query, streaming };
+        const payload = { query, streaming, device_id: deviceId };
         const payloadString = JSON.stringify(payload);
 
         console.log('Payload object:', payload);

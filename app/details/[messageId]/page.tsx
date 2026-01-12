@@ -246,22 +246,17 @@ export default function ResponseDetails() {
                 </Box>
             </InfoCard>
 
-            {apiResponse.intent && (
-                <InfoCard title="Intent">
-                    <Box sx={{ mb: 2 }}>
-                        <Typography variant="body2" fontWeight="bold" color="text.secondary" gutterBottom>
-                            Intent Type:
-                        </Typography>
-                        <Chip label={apiResponse.intent} color="primary" size="small" sx={{ mb: 2 }} />
-                    </Box>
-                    {apiResponse.intent_reasoning && (
-                        <Box>
-                            <Typography variant="body2" fontWeight="bold" color="text.secondary" gutterBottom>
-                                Reasoning:
-                            </Typography>
-                            <Typography variant="body2">{apiResponse.intent_reasoning}</Typography>
-                        </Box>
-                    )}
+            {apiResponse.summarized_intent && (
+                <InfoCard title="Summarized Intent">
+                    <Typography variant="body2">{apiResponse.summarized_intent}</Typography>
+                </InfoCard>
+            )}
+
+            {apiResponse.technical_intent && (
+                <InfoCard title="Technical Intent">
+                    <Typography variant="body2" component="pre" sx={{ whiteSpace: 'pre-wrap', fontFamily: 'inherit' }}>
+                        {apiResponse.technical_intent}
+                    </Typography>
                 </InfoCard>
             )}
 
