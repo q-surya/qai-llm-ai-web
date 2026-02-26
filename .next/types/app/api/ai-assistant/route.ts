@@ -1,4 +1,4 @@
-// File: /Users/apzzo/client/demo-app/app/api/ai-assistant/route.ts
+// File: /Users/manikandanarumugam/Apzzo/Project/qai-llm-ai-web/workspace/app/api/ai-assistant/route.ts
 import * as entry from '../../../../../app/api/ai-assistant/route.js'
 import type { NextRequest } from 'next/server.js'
 

@@ -1,4 +1,4 @@
-// File: /Users/apzzo/client/demo-app/app/page.tsx
+// File: /Users/manikandanarumugam/Apzzo/Project/qai-llm-ai-web/workspace/app/page.tsx
 import * as entry from '../../../app/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
