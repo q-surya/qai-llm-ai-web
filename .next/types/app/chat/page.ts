@@ -1,4 +1,4 @@
-// File: /Users/manikandanarumugam/Apzzo/Project/qai-llm-ai-web/workspace/app/chat/page.tsx
+// File: /Users/apzzo/client/demo-app/app/chat/page.tsx
 import * as entry from '../../../../app/chat/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

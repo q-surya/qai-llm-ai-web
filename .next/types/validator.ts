@@ -74,10 +74,46 @@ type RouteHandlerConfig<Route extends AppRouteHandlerRoutes = AppRouteHandlerRou
   type __Unused = __Check
 }
 
+// Validate ../../app/schema-info/page.tsx
+{
+  type __IsExpected<Specific extends AppPageConfig<"/schema-info">> = Specific
+  const handler = {} as typeof import("../../app/schema-info/page.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
 // Validate ../../app/api/ai-assistant/route.ts
 {
   type __IsExpected<Specific extends RouteHandlerConfig<"/api/ai-assistant">> = Specific
   const handler = {} as typeof import("../../app/api/ai-assistant/route.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
+// Validate ../../app/api/embeddings/[id]/route.ts
+{
+  type __IsExpected<Specific extends RouteHandlerConfig<"/api/embeddings/[id]">> = Specific
+  const handler = {} as typeof import("../../app/api/embeddings/[id]/route.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
+// Validate ../../app/api/embeddings/search/route.ts
+{
+  type __IsExpected<Specific extends RouteHandlerConfig<"/api/embeddings/search">> = Specific
+  const handler = {} as typeof import("../../app/api/embeddings/search/route.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
+// Validate ../../app/api/embeddings/store/route.ts
+{
+  type __IsExpected<Specific extends RouteHandlerConfig<"/api/embeddings/store">> = Specific
+  const handler = {} as typeof import("../../app/api/embeddings/store/route.js")
   type __Check = __IsExpected<typeof handler>
   // @ts-ignore
   type __Unused = __Check

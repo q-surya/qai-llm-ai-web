@@ -4,6 +4,7 @@ import React from 'react';
 import { Box, Button, Typography, Container } from '@mui/material';
 import { useRouter } from 'next/navigation';
 import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
+import SchemaIcon from '@mui/icons-material/Schema';
 
 export default function Home() {
     const router = useRouter();
@@ -42,29 +43,54 @@ export default function Home() {
                 >
                     Your Intelligent Data Assistant
                 </Typography>
-                <Button
-                    variant="contained"
-                    size="large"
-                    startIcon={<ChatBubbleOutlineIcon />}
-                    onClick={() => router.push('/chat')}
-                    sx={{
-                        px: { xs: 4, md: 6 },
-                        py: { xs: 1.25, md: 1.5 },
-                        fontSize: { xs: '1rem', md: '1.2rem' },
-                        borderRadius: 3,
-                        textTransform: 'none',
-                        background: 'linear-gradient(135deg, #6D5CFF 0%, #B44BFF 100%)',
-                        boxShadow: '0 4px 14px rgba(109, 92, 255, 0.3)',
-                        '&:hover': {
-                            background: 'linear-gradient(135deg, #5844E0 0%, #9F33E6 100%)',
-                            boxShadow: '0 6px 20px rgba(109, 92, 255, 0.4)',
-                            transform: 'translateY(-2px)',
-                        },
-                        transition: 'all 0.2s ease',
-                    }}
-                >
-                    Open Chat
-                </Button>
+                <Box sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, gap: 2 }}>
+                    <Button
+                        variant="contained"
+                        size="large"
+                        startIcon={<ChatBubbleOutlineIcon />}
+                        onClick={() => router.push('/chat')}
+                        sx={{
+                            px: { xs: 4, md: 6 },
+                            py: { xs: 1.25, md: 1.5 },
+                            fontSize: { xs: '1rem', md: '1.2rem' },
+                            borderRadius: 3,
+                            textTransform: 'none',
+                            background: 'linear-gradient(135deg, #6D5CFF 0%, #B44BFF 100%)',
+                            boxShadow: '0 4px 14px rgba(109, 92, 255, 0.3)',
+                            '&:hover': {
+                                background: 'linear-gradient(135deg, #5844E0 0%, #9F33E6 100%)',
+                                boxShadow: '0 6px 20px rgba(109, 92, 255, 0.4)',
+                                transform: 'translateY(-2px)',
+                            },
+                            transition: 'all 0.2s ease',
+                        }}
+                    >
+                        Open Chat
+                    </Button>
+                    <Button
+                        variant="outlined"
+                        size="large"
+                        startIcon={<SchemaIcon />}
+                        onClick={() => router.push('/schema-info')}
+                        sx={{
+                            px: { xs: 4, md: 6 },
+                            py: { xs: 1.25, md: 1.5 },
+                            fontSize: { xs: '1rem', md: '1.2rem' },
+                            borderRadius: 3,
+                            textTransform: 'none',
+                            borderColor: 'primary.main',
+                            color: 'primary.main',
+                            '&:hover': {
+                                borderColor: 'primary.dark',
+                                bgcolor: 'rgba(109, 92, 255, 0.08)',
+                                transform: 'translateY(-2px)',
+                            },
+                            transition: 'all 0.2s ease',
+                        }}
+                    >
+                        Schema Info
+                    </Button>
+                </Box>
             </Box>
         </Container>
     );

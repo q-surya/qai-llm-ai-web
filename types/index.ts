@@ -37,3 +37,26 @@ export interface ChatState {
     isLoading: boolean;
     error: string | null;
 }
+
+export const SCHEMA_CONTEXT_TYPE = 'SCHEMA_CONTEXT';
+
+export interface SchemaContextEmbedding {
+    id: string;
+    /** Display text from search/list API */
+    content?: string;
+    /** Used when creating/updating */
+    text?: string;
+    type?: string;
+    /** Similarity score from search (null coalesce to 0 for display) */
+    similarity?: number | null;
+    created_at?: string;
+    updated_at?: string;
+    [key: string]: unknown;
+}
+
+export interface EmbeddingsListResponse {
+    data?: SchemaContextEmbedding[];
+    items?: SchemaContextEmbedding[];
+    results?: SchemaContextEmbedding[];
+    [key: string]: unknown;
+}

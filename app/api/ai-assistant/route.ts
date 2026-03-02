@@ -1,5 +1,6 @@
 import { NextRequest } from "next/server";
 import https from "https";
+import { BACKEND_HOST, BACKEND_PORT } from "@/constants/backend";
 
 export async function POST(request: NextRequest) {
   try {
@@ -14,8 +15,8 @@ export async function POST(request: NextRequest) {
       const stream = new ReadableStream({
         start(controller) {
           const options = {
-            hostname: "44.192.97.214",
-            port: 8000,
+            hostname: BACKEND_HOST,
+            port: BACKEND_PORT,
             path: "/v1/ai-assistant",
             method: "POST",
             headers: {
@@ -81,8 +82,8 @@ export async function POST(request: NextRequest) {
     // Non-streaming response (original behavior)
     return new Promise<Response>((resolve) => {
       const options = {
-        hostname: "44.192.97.214",
-        port: 8000,
+        hostname: BACKEND_HOST,
+        port: BACKEND_PORT,
         path: "/v1/ai-assistant",
         method: "POST",
         headers: {
