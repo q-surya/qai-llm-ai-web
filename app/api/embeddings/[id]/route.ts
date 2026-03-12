@@ -8,7 +8,7 @@ async function proxyRequest(
   body?: object
 ) {
   const bodyString = body ? JSON.stringify(body) : '';
-  const path = `/v1/embeddings/${encodeURIComponent(id)}`;
+  const path = `/v1/rag/${encodeURIComponent(id)}`;
 
   return new Promise<string>((resolve, reject) => {
     const options: https.RequestOptions = {

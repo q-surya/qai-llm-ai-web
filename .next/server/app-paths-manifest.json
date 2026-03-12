@@ -1,9 +1,6 @@
 {
-  "/api/embeddings/search/route": "app/api/embeddings/search/route.js",
-  "/api/embeddings/[id]/route": "app/api/embeddings/[id]/route.js",
-  "/api/embeddings/store/route": "app/api/embeddings/store/route.js",
   "/api/ai-assistant/route": "app/api/ai-assistant/route.js",
   "/schema-info/page": "app/schema-info/page.js",
   "/chat/page": "app/chat/page.js",
-  "/page": "app/page.js"
+  "/details/[messageId]/page": "app/details/[messageId]/page.js"
 }

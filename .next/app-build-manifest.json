@@ -31,15 +31,11 @@
       "static/chunks/main-app.js",
       "static/chunks/app/api/ai-assistant/route.js"
     ],
-    "/api/embeddings/store/route": [
+    "/details/[messageId]/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/api/embeddings/store/route.js"
-    ],
-    "/api/embeddings/[id]/route": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/api/embeddings/[id]/route.js"
+      "static/css/app/details/[messageId]/page.css",
+      "static/chunks/app/details/[messageId]/page.js"
     ]
   }
 }

@@ -11,7 +11,7 @@ export async function POST(request: NextRequest) {
       const options = {
         hostname: BACKEND_HOST,
         port: BACKEND_PORT,
-        path: '/v1/embeddings/search',
+        path: '/v1/rag/search',
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
