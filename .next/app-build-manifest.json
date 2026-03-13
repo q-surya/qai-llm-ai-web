@@ -15,6 +15,14 @@
       "static/chunks/main-app.js",
       "static/css/app/chat/page.css",
       "static/chunks/app/chat/page.js"
+<<<<<<< Updated upstream
+=======
+    ],
+    "/api/ai-assistant/route": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/api/ai-assistant/route.js"
+>>>>>>> Stashed changes
     ]
   }
 }

@@ -1,5 +1,5 @@
 import { NextRequest } from "next/server";
-import https from "https";
+import http from "http";
 import { BACKEND_HOST, BACKEND_PORT } from "@/constants/backend";
 
 export async function POST(request: NextRequest) {
@@ -14,7 +14,7 @@ export async function POST(request: NextRequest) {
     if (streaming) {
       const stream = new ReadableStream({
         start(controller) {
-          const options = {
+          const options: http.RequestOptions = {
             hostname: BACKEND_HOST,
             port: BACKEND_PORT,
             path: "/v1/ai-assistant",
@@ -24,10 +24,9 @@ export async function POST(request: NextRequest) {
               Accept: "application/json",
               "Content-Length": Buffer.byteLength(bodyString),
             },
-            rejectUnauthorized: false,
           };
 
-          const req = https.request(options, (res) => {
+          const req = http.request(options, (res) => {
             if (
               res.statusCode &&
               res.statusCode >= 200 &&
@@ -81,7 +80,7 @@ export async function POST(request: NextRequest) {
 
     // Non-streaming response (original behavior)
     return new Promise<Response>((resolve) => {
-      const options = {
+      const options: http.RequestOptions = {
         hostname: BACKEND_HOST,
         port: BACKEND_PORT,
         path: "/v1/ai-assistant",
@@ -91,10 +90,9 @@ export async function POST(request: NextRequest) {
           Accept: "application/json",
           "Content-Length": Buffer.byteLength(bodyString),
         },
-        rejectUnauthorized: false,
       };
 
-      const req = https.request(options, (res) => {
+      const req = http.request(options, (res) => {
         let data = "";
 
         res.on("data", (chunk) => {

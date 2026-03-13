@@ -1,5 +1,5 @@
 import { NextRequest } from 'next/server';
-import https from 'https';
+import http from 'http';
 import { BACKEND_HOST, BACKEND_PORT } from '@/constants/backend';
 
 async function proxyRequest(
@@ -11,20 +11,19 @@ async function proxyRequest(
   const path = `/v1/rag/${encodeURIComponent(id)}`;
 
   return new Promise<string>((resolve, reject) => {
-    const options: https.RequestOptions = {
+    const options: http.RequestOptions = {
       hostname: BACKEND_HOST,
       port: BACKEND_PORT,
       path,
       method,
       headers: { 'Content-Type': 'application/json' },
-      rejectUnauthorized: false,
     };
     if (bodyString) {
       (options.headers as Record<string, string>)['Content-Length'] =
         String(Buffer.byteLength(bodyString));
     }
 
-    const req = https.request(options, (res) => {
+    const req = http.request(options, (res) => {
       let responseBody = '';
       res.on('data', (chunk) => (responseBody += chunk));
       res.on('end', () => {

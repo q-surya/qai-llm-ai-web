@@ -1,3 +1,7 @@
 {
+<<<<<<< Updated upstream
+=======
+  "/api/ai-assistant/route": "app/api/ai-assistant/route.js",
+>>>>>>> Stashed changes
   "/chat/page": "app/chat/page.js"
 }

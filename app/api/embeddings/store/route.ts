@@ -1,5 +1,5 @@
 import { NextRequest } from 'next/server';
-import https from 'https';
+import http from 'http';
 import { BACKEND_HOST, BACKEND_PORT } from '@/constants/backend';
 
 export async function POST(request: NextRequest) {
@@ -8,7 +8,7 @@ export async function POST(request: NextRequest) {
     const bodyString = JSON.stringify(body);
 
     const data = await new Promise<string>((resolve, reject) => {
-      const options = {
+      const options: http.RequestOptions = {
         hostname: BACKEND_HOST,
         port: BACKEND_PORT,
         path: '/v1/rag/store',
@@ -17,10 +17,9 @@ export async function POST(request: NextRequest) {
           'Content-Type': 'application/json',
           'Content-Length': Buffer.byteLength(bodyString),
         },
-        rejectUnauthorized: false,
       };
 
-      const req = https.request(options, (res) => {
+      const req = http.request(options, (res) => {
         let responseBody = '';
         res.on('data', (chunk) => (responseBody += chunk));
         res.on('end', () => {
