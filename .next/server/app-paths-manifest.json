@@ -1,6 +1,3 @@
 {
-  "/api/ai-assistant/route": "app/api/ai-assistant/route.js",
-  "/schema-info/page": "app/schema-info/page.js",
-  "/chat/page": "app/chat/page.js",
-  "/details/[messageId]/page": "app/details/[messageId]/page.js"
+  "/chat/page": "app/chat/page.js"
 }
